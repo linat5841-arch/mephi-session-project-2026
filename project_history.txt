@@ -1,0 +1,114 @@
+    1  sudo dnf install -y gcc kernel-devel kernel-headers make perl
+    2  sudo mkdir -p /mnt/cdrom
+    3  sudo mount /dev/cdrom /mnt/cdrom
+    4  cd /mnt/cdrom
+    5  sudo sh VBoxLinuxAdditions.run
+    6  sudo mkdir -p /mnt/cdrom
+    7  sudo mount /dev/cdrom /mnt/cdrom
+    8  cd /mnt/cdrom
+    9  sudo sh VBoxLinuxAdditions.run
+   10  sudo mkdir -p /mnt/cdrom
+   11  sudo mount /dev/cdrom /mnt/cdrom
+   12  cd /mnt/cdrom
+   13  sudo sh VBoxLinuxAdditions.run
+   14  sudo mkdir -p /mnt/cdrom
+   15  sudo mount /dev/cdrom /mnt/cdrom
+   16  cd /mnt/cdrom
+   17  sudo sh VBoxLinuxAdditions.run
+   18  sudo mkdir -p /mnt/cdrom
+   19  sudo mount /dev/cdrom /mnt/cdrom
+   20  cd /mnt/cdrom
+   21  sudo sh VBoxLinuxAdditions.run
+   22  sudo mkdir -p /mnt/cdrom
+   23  sudo mount /dev/cdrom /mnt/cdrom
+   24  cd /mnt/cdrom
+   25  sudo sh VBoxLinuxAdditions.run
+   26  sudo mkdir -p /mnt/cdrom
+   27  sudo mount /dev/cdrom /mnt/cdrom
+   28  cd /mnt/cdrom
+   29  sudo sh VBoxLinuxAdditions.run
+   30  sudo dnf install kernel-devel kernel-headers gcc make perl
+   31  sudo /sbin/rcvboxadd setup
+   32  sudo reboot
+   33  sudo dnf install kernel-devel kernel-headers gcc make perl elfutils-libelf-devel
+   34  sudo reboot
+   35  sudo mkdir -p /mnt/cdrom                                         sudo mount /dev/cdrom /mnt/cdrom                                                cd /mnt/cdrom                                                                   sudo sh VBoxLinuxAdditions.run
+   36  sudo dnf install kernel-devel kernel-headers gcc make perl
+   37  sudo reboot
+   38  uname -r
+   39  rpm -q kernel-devel
+   40  sudo dnf install kernel-devel-$(uname -r)
+   41  sudo /sbin/rcvboxadd setup
+   42  reboot
+   43  lsmod | grep vbox
+   44  ps aux | grep VBoxClient
+   45  sudo usermod -aG vboxsf $USER
+   46  sudo reboot
+   47  sudo usermod -aG vboxsf lina
+   48  sudo reboot
+   49  /* Глобальная переменная в сегменте инициализированных данных */
+   50  static int idata = 111;
+   51  int
+   52  main(int argc, char *argv[])
+   53  {     int istack = 222; /* Локальная переменная в стеке */;     pid_t childPid;     switch (childPid = fork()) {
+   54      case -1:         errExit("fork");
+   55      case 0: /* процесс-потомок */
+   56  /* Изменить переменные в сегменте данных и стеке */
+   57          idata *= 3;
+   58          istack *= 3;
+   59          break;
+   60      default: /* родительский процесс */
+   61  /* Заснуть на три секунды, чтобы выполнился потомок */
+   62          sleep(3);
+   63          break;
+   64      }
+   65  /* Этот код выполняется и родителем и потомком */
+   66      printf("PID=%ld %s idata=%d istack=%d\n", (long) getpid(), (childPid == 0) ? "(child) " : "(parent)", idata, istack);
+   67      exit(EXIT_SUCCESS);
+   68  }
+   69  sudo dnf update -y
+   70  sudo dnf install -y gcc make perl kernel-devel kernel-headers dkms
+   71  sudo systemctl daemon-reload
+   72  sudo reboot
+   73  sudo dnf install gcc kernel-devel kernel-headers make perl
+   74  sudo sh /run/media/$USER/VBox_GAs*/VBoxLinuxAdditions.run
+   75  sudo reboot
+   76  [200~sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo~
+   77  dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+   78  su -
+   79  reboot
+   80  sudo whoami
+   81  sudo dnf install dnf-plugins-core
+   82  sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+   83  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   84  sudo systemctl start docker
+   85  sudo systemctl enable docker
+   86  sudo docker run hello-world
+   87  docker run -it ubuntu bash
+   88  sudo usermod -aG docker lina
+   89  ip a
+   90  sudo systemctl restart NetworkManager
+   91  nmcli device disconnect enp0s3
+   92  nmcli device connect enp0s3
+   93  ip a
+   94  poweroff
+   95  ip a
+   96  curl http://localhost
+   97  curl http://192.168.0.17
+   98  sudo nano /usr/share/nginx/html/index.html
+   99  [200~sudo nano /usr/share/nginx/html/index.html~
+  100  sudo nano /usr/share/nginx/html/index.html
+  101  sudo systemctl restart nginx
+  102  sudo nano /var/www/html/index.html
+  103  sudo systemctl restart nginx
+  104  grep -R "root " /etc/nginx
+  105  grep -R "index" /etc/nginx
+  106  sudo nano /usr/share/nginx/html/index.html
+  107  sudo systemctl restart nginx
+  108  cat /usr/share/nginx/html/index.html
+  109  sudo mv /etc/nginx/default.d/welcome.conf /etc/nginx/default.d/welcome.conf.disabled
+  110  ls /etc/nginx/default.d/
+  111  ls /etc/nginx/conf.d/
+  112  cat /etc/nginx/conf.d/*
+  113  curl http://localhost
+  114  history > ~/project_history.txt
